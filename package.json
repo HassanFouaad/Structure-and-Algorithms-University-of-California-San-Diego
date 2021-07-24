@@ -1,0 +1,20 @@
+{
+  "name": "DatasTRUCTURE",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HassanFouaad/Structure-and-Algorithms-University-of-California-San-Diego.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HassanFouaad/Structure-and-Algorithms-University-of-California-San-Diego/issues"
+  },
+  "homepage": "https://github.com/HassanFouaad/Structure-and-Algorithms-University-of-California-San-Diego#readme"
+}
