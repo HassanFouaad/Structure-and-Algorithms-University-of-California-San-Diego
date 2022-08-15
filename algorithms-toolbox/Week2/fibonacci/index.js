@@ -14,12 +14,16 @@ function readLine(line) {
 }
 
 function fibonacci(count) {
+  count = parseInt(count);
+  if (count === 0 || count === 1) {
+    return n;
+  }
+
   let outPutList = [0, 1];
-  for (var i = 1; i < count - 1; i++) {
+  for (let i = 2; i <= count; i++) {
     const reduce = outPutList[i - 1];
-    const plus = outPutList[i];
-    console.log(reduce, plus);
-    outPutList.push(parseInt(reduce) + parseInt(plus));
+    const plus = outPutList[i - 2];
+    outPutList.push(reduce + plus);
   }
   return outPutList;
 }
