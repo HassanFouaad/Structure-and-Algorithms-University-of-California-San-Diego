@@ -13,18 +13,22 @@ function readLine(line) {
 }
 
 function fib(n) {
-  n = parseInt(n);
-  if (n === 0 || n === 1) {
+  if (n <= 1) {
     return n;
   }
 
-  let outPutList = [0, 1];
-  for (let i = 2; i <= n; i++) {
-    const reduce = outPutList[i - 1];
-    const plus = outPutList[i - 2];
-    outPutList.push(reduce + plus);
+  let prev = 0;
+  let curr = 1;
+  let sum = 1;
+
+  for (let i = 0; i < n - 1; i++) {
+    let tmpPrev = prev;
+    prev = curr;
+    curr += tmpPrev;
+    sum += curr;
   }
-  return outPutList;
+
+  return sum % 10;
 }
 
 module.exports = fib;
