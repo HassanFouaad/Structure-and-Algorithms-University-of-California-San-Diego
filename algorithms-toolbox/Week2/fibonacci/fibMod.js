@@ -1,4 +1,3 @@
-
 const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
@@ -18,20 +17,40 @@ function readLine(line) {
   }
 }
 
-function getFibMod(n, m) {
-  if (n === 0 || n === 1) {
-    return n;
+function pisano(m) {
+  let prev = 0;
+  let curr = 1;
+  let res = 0;
+
+  for (let i = 0; i < m * m; i++) {
+    let temp = 0;
+    temp = curr;
+    curr = (prev + curr) % m;
+    prev = temp;
+
+    if (prev == 0 && curr == 1) res = i + 1;
   }
+  return res;
+}
+
+function getFibMod(n, m) {
+  // Getting the period
+  let pisanoPeriod = pisano(m);
+
+  n = n % pisanoPeriod;
 
   let prev = 0;
   let curr = 1;
 
-  for (let i = 0; i < n - 1; i++) {
-    let tmpPrev = prev;
-    prev = curr;
-    curr += tmpPrev;
-  }
+  if (n == 0) return 0;
+  else if (n == 1) return 1;
 
+  for (let i = 0; i < n - 1; i++) {
+    let temp = 0;
+    temp = curr;
+    curr = (prev + curr) % m;
+    prev = temp;
+  }
   return curr % m;
 }
 

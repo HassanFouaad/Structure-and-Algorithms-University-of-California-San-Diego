@@ -23,12 +23,12 @@ function fib(n) {
   let prev = 0;
   let curr = 1;
 
-  for (let i = 0; i < n - 1; i++) {
-    let tmpPrev = prev;
+  for (let i = 1; i < n; i++) {
+    let temp = (prev + curr) % 10;
     prev = curr;
-    curr += tmpPrev;
+    curr = temp;
   }
-  return curr;
+  return curr % 10;
 }
 
 module.exports = fib;

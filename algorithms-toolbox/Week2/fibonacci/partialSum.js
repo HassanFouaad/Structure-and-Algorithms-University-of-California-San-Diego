@@ -17,23 +17,17 @@ function readLine(line) {
   }
 }
 
+function fib(n) {
+  let phi = (1 + Math.sqrt(5)) / 2;
+  return parseInt(Math.round(Math.pow(phi, n) / Math.sqrt(5)));
+}
+
 function partialSum(from, to) {
-  let sum = 0;
-  let current = 0;
-  let next = 1;
+  var sum = 0;
 
-  for (let i = 0; i <= to; i++) {
-    if (i >= from) {
-      sum = sum + current;
-    }
+  for (i = from; i <= to; i++) sum += fib(i);
 
-    let newCurrent = next;
-    next = next + current;
-
-    current = newCurrent;
-  }
-
-  return sum % 10;
+  return sum;
 }
 
 module.exports = partialSum;

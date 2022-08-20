@@ -16,21 +16,29 @@ function readLine(line) {
   }
 }
 
-function fibSumSquare(n) {
-  if (n <= 1) return n;
-
-  let previous = 0;
-  let current = 1;
-  let sum = 1;
-
-  for (let i = 0; i < n - 1; i++) {
-    let tmp_previous = previous;
-    previous = current;
-    current = tmp_previous + current;
-    sum += current * current;
+let calc = (n) => {
+  let pre = 0,
+    cur = 1;
+  n = n % 60;
+  if (n == 0) {
+    return 0;
+  } else if (n == 1) {
+    return 1;
+  } else {
+    for (let i = 2; i <= n; i++) {
+      let temp = (pre + cur) % 60;
+      pre = cur;
+      cur = temp;
+    }
   }
 
-  return sum % 10;
+  return cur;
+};
+
+function fibSumSquare(n) {
+  let a = calc(n);
+  let b = calc(n + 1);
+  return (a * b) % 10;
 }
 
 module.exports = fibSumSquare;

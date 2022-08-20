@@ -14,7 +14,7 @@ function readLine(line) {
 
 function fib(n) {
   n = parseInt(n);
-  if (n === 0 || n === 1) {
+  if (n <= 1) {
     return n;
   }
 
@@ -24,7 +24,7 @@ function fib(n) {
     const plus = outPutList[i - 2];
     outPutList.push(reduce + plus);
   }
-  return outPutList;
+  return outPutList[n];
 }
 
 module.exports = fib;
