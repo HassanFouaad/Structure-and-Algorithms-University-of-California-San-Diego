@@ -10,25 +10,24 @@ process.stdin.setEncoding("utf8");
 rl.on("line", readLine);
 
 function readLine(line) {
-  console.log(fib(parseInt(line, 10)));
+  console.log(ld(parseInt(line, 10)));
   process.exit();
 }
 
-function fib(n) {
-  n = parseInt(n);
+function ld(n) {
+  n = (n + 2) % 60;
+  let fib = [];
+  fib[0] = 0;
+  fib[1] = 1;
 
-  if (n === 0 || n === 1) {
-    return n;
+  for (let i = 2; i <= n; i++) {
+    fib[i] = ((fib[i - 1] % 10) + (fib[i - 2] % 10)) % 10;
   }
-  let prev = 0;
-  let curr = 1;
 
-  for (let i = 1; i < n; i++) {
-    let temp = (prev + curr) % 10;
-    prev = curr;
-    curr = temp;
+  if (fib[n] == 0) {
+    return 9;
   }
-  return curr % 10;
+  return (fib[n] % 10) - 1;
 }
 
-module.exports = fib;
+module.exports = ld;

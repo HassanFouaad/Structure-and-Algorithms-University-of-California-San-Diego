@@ -14,7 +14,7 @@ function readLine(line) {
     const a = parseInt(line.toString().split(" ")[0], 10);
     const b = parseInt(line.toString().split(" ")[1], 10);
 
-    console.log(gcd(a, b));
+    console.log(lcm(a, b));
     process.exit();
   }
 }
@@ -24,4 +24,6 @@ function gcd(a, b) {
   else return gcd(b, a % b);
 }
 
-module.exports = gcd;
+const lcm = (a, b) => a * (b / gcd(a, b));
+
+module.exports = lcm;
